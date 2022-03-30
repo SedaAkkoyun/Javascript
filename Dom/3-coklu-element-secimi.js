@@ -30,7 +30,24 @@ val=document.getElementsByTagName('a');
 val=document.getElementById('task-list');
 val=val.getElementsByTagName('a');
 // başka bır yazım seklı
-val=document.getElementById('task-item')
-.getElementsByTagName('a');
+// val=document.getElementById('task-item')
+// .getElementsByTagName('a');
 
+
+//QuerySelectorAll
+//belırledıgımız elementlerı secer ancak foreach ozellıgıde vardır
+
+// val=document.querySelectorAll('li');
+// Tüm lileri seçti
+// val.forEach(function(item,index){
+//     // console.log(item);
+//     item.textContent=`${index} -hello`;
+//     // tüm itemların textı degıstırıldı
+// })
+
+val=document.querySelectorAll('li:nth-child(odd)');
+// Tek sayılı indexe sahip liler
+val.forEach(function(item){
+    item.style.background='#ccc';
+})
 console.log(val);

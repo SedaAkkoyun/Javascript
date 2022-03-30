@@ -40,3 +40,9 @@ document.querySelector('li:last-child').textContent='task item';
 // Class içeriği değiştirildi
 console.log(document.querySelector('li').classList.add('active'));
 // classların yanına active classıda eklendi
+
+
+
+//Single Elements
+//*****document.getElementById()
+//*****document.QuerySelector() */

@@ -19,5 +19,18 @@ for(let i=0;i<val.length;i++)
     // valde tanımlı clasın tum elemanları mavı renge dondu
 }
 
+// document.getElementsByTagName
+// taga gore cagırma işlemi
+val=document.getElementsByTagName('li');
+// Tüm li'ler
+val=document.getElementsByTagName('a');
+// Tüm a lar
+
+// sadece task-list classındakı tum a ları ıstıyorsam
+val=document.getElementById('task-list');
+val=val.getElementsByTagName('a');
+// başka bır yazım seklı
+val=document.getElementById('task-item')
+.getElementsByTagName('a');
 
 console.log(val);

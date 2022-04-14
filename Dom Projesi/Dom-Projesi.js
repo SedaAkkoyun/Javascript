@@ -2,6 +2,12 @@ const form=document.querySelector('form');
 const input=document.querySelector('#txtTaskName');
 const btndeleteall=document.querySelector('#btnDeleteAll');
 const tasklist=document.querySelector('#task-list');
+const items=['item 1','item 2','item 3'];
+
+
+//loadİtem
+loadItems();
+// Dizideki elemanları ıtem olarak atayan fonksıyon
 
 eventListeners();
 // eventListeners fonksiyonunu çalıştır
@@ -12,17 +18,21 @@ function eventListeners(){
     tasklist.addEventListener('click',deleteItem);
     btndeleteall.addEventListener('click',deleteAll);
 }
-function addNewItem(e){
-if(input.value===''){
-    alert('add new item');
-    // eğer inputa veri girilmeden + ya basıldıysa uyarı verecek
+
+
+function loadItems(){
+    items.forEach(function(item){
+        createItem(item);
+    })
+    // items dizisinin elemanlarını sıralar ve her bır eleman için createitem fonksiyonunu çalıştırır
 }
-else
-{
-const li=document.createElement('li');
+
+function createItem(text){
+
+    const li=document.createElement('li');
 li.className='list-group-item list-group-item-secondary';
-li.appendChild(document.createTextNode(input.value));
-// li oluşturuldu diğer liler ile aynı class ismi verildi, ve içeriğine inputun içerisine yazılan veri eklendi
+li.appendChild(document.createTextNode(text));
+// li oluşturuldu diğer liler ile aynı class ismi verildi, ve içeriğine fonskiyondan gelen text yazıldı
 
 const a=document.createElement('a');
 a.className='delete-item float-right';
@@ -34,15 +44,23 @@ li.appendChild(a);
 // a linin bir çocugu haline getirildi
 
 tasklist.appendChild(li);
-//inputa girilen veri listenin içerisine (ul içerisine) eklendi
+// li ul içerisine eklendi
 
 
 input.value='';
 // input içi temizlendi
+}
+function addNewItem(e){
+
+if(input.value===''){
+    alert('add new item');
+    // eğer inputa veri girilmeden + ya basıldıysa uyarı verecek
+}
+createItem(input.value);
 
 // console.log(a);
 // console.log(li);
-}
+
     e.preventDefault();
     //Tıklandığında sayfa yenılenmesin
 }

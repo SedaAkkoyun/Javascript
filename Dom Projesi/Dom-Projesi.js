@@ -9,6 +9,8 @@ function eventListeners(){
     form.addEventListener('submit',addNewItem);
     // form submit oldugunda addNewItem fonksiyonunu çalıştır
 
+    tasklist.addEventListener('click',deleteItem);
+    btndeleteall.addEventListener('click',deleteAll);
 }
 function addNewItem(e){
 if(input.value===''){
@@ -43,4 +45,37 @@ input.value='';
 }
     e.preventDefault();
     //Tıklandığında sayfa yenılenmesin
+}
+function deleteItem(e){
+// Tüm task listi verdiğimiz için tasklistte herhangi bir yere click yapsakta çalışır bundan dolayı if(tasklistin içerisindeki tıkladığı yerin class namei='fas fa-times' ise)
+if(e.target.className=='fas fa-times')
+{
+
+    e.target.parentElement.parentElement.remove();
+    // console.log(e.target);
+}
+
+
+
+    e.preventDefault();
+}
+function deleteAll(e){
+    // tasklist.innerHTML='';
+    // tasklist içerisindeki tüm htmller silindi
+    if(confirm('are you sure ?')){
+tasklist.childNodes.forEach(function(item){
+   
+    
+    // Tüm nodesları sıraladık içerisinden nodetype 1 olan yani elementleri(li) seçtik
+    if(item.nodeType===1){
+
+        item.remove();
+        // console.log(item);
+
+    }
+})
+    }
+
+    e.preventDefault();
+    // Eğer buttonun ıcerısınde a olmasaydı refresh etmezdı sayfayı prevent vermemıze gerek kalmazdı
 }

@@ -19,8 +19,8 @@ var models=[
     image:'img/skoda.jpg',
     link:'sahibinden.com/bmw-4-serisi-418d-gran-coupe'}
 ]
-var index=2;
+var index=1;
 document.querySelector('.card-img-top').setAttribute('src',models[index].image);
 document.querySelector('.card-title').textContent = models[index].name;
 
-document.querySelector('.card-link').setAttribute('href',models[index].link)
+document.querySelector('.card-link').setAttribute('href',models[index].link);
